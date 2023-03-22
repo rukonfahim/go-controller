@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-controller
+  template:
+    metadata:
+      labels:
+        app: my-controller
+    spec:
+      serviceAccountName: my-controller-sa # specify a service account with appropriate permissions 
+      containers:
+        - name: manager
+          image: <image-name> # specify the name of your controller's container image 
+          resources:
+            limits:
+              cpu: 100m
+              memory: 30Mi
+            requests:
+              cpu: 100m
+              memory: 20Mi

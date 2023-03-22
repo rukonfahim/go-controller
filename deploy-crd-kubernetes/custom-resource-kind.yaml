@@ -1,0 +1,7 @@
+apiVersion: mygroup.com/v1 # specify the group and version of your custom resource 
+kind: MyResource # specify the kind of your custom resource 
+metadata:
+  name: myresource-sample # specify a name for this instance 
+spec:
+  image: nginx # specify values for any fields defined in MyResourceSpec 
+  port :80
